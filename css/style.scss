@@ -1,0 +1,59 @@
+---
+---
+
+body {
+  padding-top: 53px;
+}
+
+.jumbotron {
+  background-color: transparent;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  h1, h2, h3, h4 {
+    font-weight: normal;
+  }
+
+  .input-group {
+    max-width: 500px;
+    margin-top: 30px;
+    .form-control, .btn {
+      height: 60px;
+    }
+  }
+}
+
+.callout-boxes {
+  .col-md-6 {
+    padding: 100px 50px 50px;
+  }
+  .first {
+
+  }
+  .second {
+
+  }
+}
+
+footer {
+  .ancir-footer {
+    background: #000000 url("/img/footer.png") no-repeat bottom center;
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .credit {
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+    .logos {
+      img {
+        height: 50px;
+        margin: 10px;
+        -webkit-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+    }
+  }
+}

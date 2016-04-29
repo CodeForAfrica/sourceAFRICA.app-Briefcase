@@ -8,13 +8,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="icon" href="favicon.png" type="image/png">
         <!-- Place favicon.ico in the root directory -->
+
+        <script type="text/javascript">
+          var host = "{{ site.enforce_ssl }}";
+          if ((host == window.location.host) && (window.location.protocol != "https:"))
+              window.location.protocol = "https";
+        </script>
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/vendor/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.css">
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     </head>
@@ -25,7 +35,7 @@
 
         <!-- Add your site or application content here -->
         {% include header.html %}
-        
+
         {{ content }}
 
         {% include footer.html %}

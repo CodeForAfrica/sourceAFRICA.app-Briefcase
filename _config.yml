@@ -1,3 +1,10 @@
 title: Briefcase
+sub-title: Document Leaks from KMOFA
+
+url: https://briefcase.sourceafrica.net
+enforce_ssl: briefcase.sourceafrica.net
+
+github-url: https://github.com/CodeForAfrica/sourceAFRICA.app-Briefcase
+api-url: https://sourceafrica.net/help/api
 
 google-analytics:

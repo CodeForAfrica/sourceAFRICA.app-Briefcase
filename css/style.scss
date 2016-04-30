@@ -2,15 +2,91 @@
 ---
 
 body {
-  padding-top: 53px;
+  color: #303030;
+}
+
+a {
+  &:hover, &:focus {
+    color: #D61E1E;
+  }
+}
+
+
+.navbar {
+  min-height: 71px;
+  .navbar-brand {
+    font-size: 30px;
+    small {
+      font-size: 30%;
+      font-weight: normal;
+      margin-top: -7px;
+      position: fixed;
+      color: rgba(255,255,255,0.5);
+      span {
+        font-size: 150%;
+      }
+    }
+
+    &:hover, &:focus {
+      color: #D61E1E;
+    }
+  }
+
+  .navbar-nav > li > a {
+    padding: 24px 21px;
+    &:hover, &:focus {
+      color: #D61E1E;
+    }
+  }
+
+  &.navbar-inverse {
+    background-color: rgba(48,48,48,0.8);
+  }
+}
+
+
+
+/* -----------------------------------------------------------------------------
+ * Home Page
+ * -----------------------------------------------------------------------------
+ */
+
+.home {
+  nav {
+    background-color: rgba(255,255,255,0) !important;
+    border-bottom: 1px rgba(255,255,255,0.5) solid;
+  }
+  .navbar-background {
+    z-index: 1000;
+  }
 }
 
 .jumbotron {
-  background-color: transparent;
-  padding-top: 150px;
+
+  background: #fff url("{{ site.home_bg_url }}") center center;
+  background-size: cover;
+
+  position: relative;
+  z-index: 1029;
+
+  padding-top: 300px;
   padding-bottom: 100px;
+
+  margin-bottom: 0px;
+
+  color: #fff;
+
   h1, h2, h3, h4 {
     font-weight: normal;
+  }
+
+  .btn {
+    padding: 13px 45px;
+    background-color: transparent;
+    border: 2px solid;
+    &:hover, &:focus {
+      background-color: #D61E1E;//rgba(26,26,26,0.3);
+    }
   }
 
   .input-group {
@@ -18,11 +94,6 @@ body {
     margin-top: 30px;
     .form-control, .btn {
       height: 60px;
-    }
-
-    .btn-primary {
-      color: #fff;
-      background-color: #1abc9c;
     }
   }
 }
@@ -32,16 +103,34 @@ body {
     padding: 100px 50px 50px;
   }
   .first {
-
+    background: #356f90 url("/img/bg/callout-first.png") no-repeat center;
   }
   .second {
-
+    background: #edeff1 url("/img/bg/callout-second.png") no-repeat bottom right;
   }
 }
 
+
+
+/* -----------------------------------------------------------------------------
+ * Search Page
+ * -----------------------------------------------------------------------------
+ */
+
+.search {
+  padding-top: 71px;
+}
+
+
+
+/* -----------------------------------------------------------------------------
+ * Footer
+ * -----------------------------------------------------------------------------
+ */
+
 footer {
   .ancir-footer {
-    background: #1a1a1a url("/img/logos/ancir.png") no-repeat center left;
+    background: #303030 url("/img/bg/ancir.jpg") no-repeat center left;
     background-size: auto 500px;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -58,7 +147,7 @@ footer {
     .btn {
       background-color: #9aa4af;
       &:hover, &:focus {
-        background-color: #1abc9c;
+        background-color: #D61E1E;
       }
     }
   }

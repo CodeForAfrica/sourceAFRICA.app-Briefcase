@@ -4,21 +4,10 @@ body-class: search
 ---
 
 <div class="container">
-  <div id="DC-search-group-cfafrica" class="DC-search-container"></div>
-  <script src="//s3-eu-west-1.amazonaws.com/s3.sourceafrica.net/embed/loader.js"></script>
-  <script>
-    dc.embed.load('https://sourceafrica.net/search/embed/', {
-      q: "Group: cfafrica",
-      container: "#DC-search-group-cfafrica",
-      title: "Documents",
-      order: "score",
-      per_page: 12,
-      search_bar: true,
-      organization: 1
-    });
-  </script>
-  <noscript>
-    <a href="https://sourceafrica.net/public/search/Group%3A%20cfafrica">View/search document collection</a>
-  </noscript>
-
+  <div class="input-group input-group-hg input-group-rounded">
+    <input type="text" class="form-control" placeholder="Search" id="search">
+    <span class="input-group-btn">
+      <button type="submit" class="btn" id="search-btn"><span class="fui-search"></span></button>
+    </span>
+  </div>
 </div>

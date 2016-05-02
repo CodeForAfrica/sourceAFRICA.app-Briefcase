@@ -18,11 +18,15 @@ $('document').ready(function(){
 BC.search.go = function () {
   BC.search.text = getParameterByName('q', window.location.hash);
   $('input#search').val(BC.search.text);
+
+  $('html,body').scrollTop(0);
   $('.docs .loading').show();
+  $('.docs-list').html('');
 
   BC.search.page = Number(getParameterByName('p', window.location.hash));
   if (BC.search.page == '' || BC.search.page !== parseInt(BC.search.page,10)) {
-    BC.search.page = 1
+    window.location = "/search.html#q=" + BC.search.text + '&p=1';
+    return true;
   }
 
   $.ajax({
@@ -32,7 +36,6 @@ BC.search.go = function () {
     BC.docs = {};
     BC.docs = response.documents;
 
-    $('.docs-list').html('');
     $.each(BC.docs, function (index, doc) {
 
       var source   = $("#template-docs-list").html();

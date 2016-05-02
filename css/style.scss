@@ -26,13 +26,14 @@ a, .btn-link {
 }
 
 
-.form-group.focus .input-group-btn .btn, .input-group.focus .input-group-btn .btn {
+.form-group.focus .input-group-btn .btn, .input-group.focus .input-group-btn .btn, .navbar-default .navbar-form .input-group.focus .form-control, .navbar-default .navbar-form .input-group.focus .input-group-btn .btn, .navbar-default .navbar-form .input-group.focus .select2-search input[type="text"]{
   border-color: #303030;
   color: #303030;
 }
 
-.form-group.focus .form-control, .form-control:focus, .form-group.focus .select2-search input[type="text"], .select2-search input[type="text"]:focus {
+.form-group.focus .form-control, .form-control:focus, .form-group.focus .select2-search input[type="text"], .select2-search input[type="text"]:focus, .navbar-default .navbar-form .form-control:focus, .navbar-default .navbar-form .select2-search input[type="text"]:focus, {
   border-color: #303030;
+  color: #303030;
 }
 
 
@@ -138,10 +139,29 @@ a, .btn-link {
  */
 
 .search {
-  padding-top: 71px;
+  padding-top: 142px;
 
-  .search-bar {
-    margin: 30px 0px;
+  .navbar-search {
+    top: 71px;
+    min-height: 53px;
+    z-index: 1020;
+    .navbar-form {
+      border: 0px;
+      .search-bar {
+        width: 100%;
+      }
+    }
+
+    .share-icons {
+      a {
+        margin: 0 5px;
+        padding: 0 5px;
+        &:last-child {
+          margin-right: 0px;
+        }
+      }
+    }
+    
   }
 
   .docs {

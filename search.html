@@ -3,16 +3,35 @@ layout: default
 body-class: search
 ---
 
-<div class="container">
-  <div class="input-group input-group-hg input-group-rounded search-bar">
-    <input type="text" class="form-control" placeholder="Search" id="search">
-    <span class="input-group-btn">
-      <button type="submit" class="btn" id="search-btn"><span class="fui-search"></span></button>
-    </span>
+<div class="navbar navbar-default navbar-fixed-top navbar-search">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-9">
+        <div class="navbar-form">
+          <div class="input-group input-group-rounded search-bar">
+            <input type="text" class="form-control" placeholder="Search" id="search">
+            <span class="input-group-btn">
+              <button type="submit" class="btn" id="search-btn"><span class="fui-search"></span></button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-3 hidden-xs">
+        <p class="navbar-text navbar-right share-icons">
+          <a href="#"><i class="fa fa-lg fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-lg fa-facebook"></i></a>
+        </p>
+      </div>
+    </div>
+
   </div>
+</div>
+
+<div class="container">
+  
 
   <div class="row docs">
-    <div class="col-xs-12 text-center loading">
+    <div class="col-md-8 text-center loading">
       <i class="fa fa-cog fa-spin fa-3x fa-fw margin-bottom"></i><br/>
       <span class="sr-only">Loading...</span>
     </div>
@@ -33,12 +52,12 @@ body-class: search
 <script id="template-docs-list" type="text/x-handlebars-template">
   <div class="media">
     <div class="media-left pull-left">
-      <a href="javascript:BC.docs.open({{ id }});">
+      <a href="{{ doc_url }}" target="_blank">
         <img class="media-object img-thumbnail" src="{{ thumbnail }}" alt="{{ title }}">
       </a>
     </div>
     <div class="media-body">
-      <a href="javascript:BC.docs.open({{ id }});">
+      <a href="{{ doc_url }}" target="_blank">
         <h6 class="media-heading">{{ title }}</h6>
       </a>
       <p style="margin-bottom: 0;"><small>Updated at {{ updated_at }}</small></p>

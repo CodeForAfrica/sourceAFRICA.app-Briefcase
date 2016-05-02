@@ -24,10 +24,13 @@ BC.search.go = function () {
   $('.docs-list').html('');
 
   BC.search.page = Number(getParameterByName('p', window.location.hash));
+  if (BC.search.text == null) {
+    BC.search.text = '';
+  };
   if (BC.search.page == '' || BC.search.page !== parseInt(BC.search.page,10)) {
     window.location = "/search.html#q=" + BC.search.text + '&p=1';
     return true;
-  }
+  };
 
   $.ajax({
     url: "https://sourceafrica.net/api/search.json",
@@ -45,6 +48,7 @@ BC.search.go = function () {
         title:       doc.title,
         description: doc.description,
         thumbnail:   doc.resources.thumbnail,
+        doc_url:     doc.canonical_url,
         updated_at:  moment(doc.updated_at).format("dddd, MMMM Do YYYY, h:mm:ss a")
       };
       var html = template(context);

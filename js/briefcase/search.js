@@ -5,7 +5,7 @@ BC.fn.docs = {};
 
 $('document').ready(function(){
 
-  if (window.location.pathname == "/search.html") {
+  if (window.location.pathname == "/search.html" || window.location.pathname == "/search") {
     BC.search.go();
     window.onhashchange = function () {
       BC.search.go();

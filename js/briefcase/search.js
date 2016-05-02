@@ -77,6 +77,9 @@ BC.search.go = function () {
     $('.docs-pages-links').html(html);
 
     $('.docs .loading').hide();
+
+    // Set share links
+    BC.fn.search_bar.setShareLinks();
   });
 
 }

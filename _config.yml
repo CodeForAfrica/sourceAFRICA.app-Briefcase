@@ -1,6 +1,8 @@
 title: Briefcase
 sub-title: Document Leaks from KMOFA
 
+description: Document Leaks from KMOFA
+
 url: https://briefcase.sourceafrica.net
 enforce_ssl: briefcase.sourceafrica.net
 
@@ -12,4 +14,7 @@ google-analytics:
 
 
 home_bg_url: /img/bg/main.jpg
+
+twitter: @Code4Africa
+github: CodeForAfrica
 

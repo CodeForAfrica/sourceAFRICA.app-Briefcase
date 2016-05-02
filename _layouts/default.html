@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>{{ site.title }}</title>
-        <meta name="description" content="">
+        <meta name="description" content="{{ site.description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -16,6 +16,22 @@
           if ((host == window.location.host) && (window.location.protocol != "https:"))
               window.location.protocol = "https";
         </script>
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="{{ site.twitter }}">
+        <meta name="twitter:title" content="{{ site.title }}">
+        <meta name="twitter:description" content="{{ site.description }}">
+        <!-- Twitter Summary card images must be at least 120x120px -->
+        <meta name="twitter:image" content="{{ site.url }}{{ site.home_bg_url }}">
+
+        <!-- Open Graph data -->
+        <meta property="og:title" content="{{ site.title }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ site.url }}" />
+        <meta property="og:image" content="{{ site.url }}{{ site.home_bg_url }}" />
+        <meta property="og:description" content="{{ site.description }}" />
+
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">

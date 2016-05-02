@@ -1,4 +1,7 @@
 BC.search = {};
+BC.fn.search = {};
+
+BC.fn.docs = {};
 
 $('document').ready(function(){
 
@@ -15,7 +18,65 @@ $('document').ready(function(){
 BC.search.go = function () {
   BC.search.text = getParameterByName('q', window.location.hash);
   $('input#search').val(BC.search.text);
+  $('.docs .loading').show();
 
-  
+  BC.search.page = Number(getParameterByName('p', window.location.hash));
+  if (BC.search.page == '' || BC.search.page !== parseInt(BC.search.page,10)) {
+    BC.search.page = 1
+  }
 
+  $.ajax({
+    url: "https://sourceafrica.net/api/search.json",
+    data: { q: BC.search.text, page: BC.search.page, sections: true, mentions: 3 }
+  }).done(function (response) {
+    BC.docs = {};
+    BC.docs = response.documents;
+
+    $('.docs-list').html('');
+    $.each(BC.docs, function (index, doc) {
+
+      var source   = $("#template-docs-list").html();
+      var template = Handlebars.compile(source);
+
+      var context  = {
+        title:       doc.title,
+        description: doc.description,
+        thumbnail:   doc.resources.thumbnail,
+        updated_at:  moment(doc.updated_at).format("dddd, MMMM Do YYYY, h:mm:ss a")
+      };
+      var html = template(context);
+
+      $('.docs-list').append(html);
+
+    });
+
+    // Pagination
+    var source   = $("#template-docs-pages-links").html();
+    var template = Handlebars.compile(source);
+
+    var context  = {
+      pages:         Math.ceil(response.total/response.per_page),
+      page:          response.page,
+      disabled_prev: '',
+      disabled_next: ''
+    };
+    if (context.page < 2) {
+      context.disabled_prev = 'disabled';
+    }
+    if (context.page == context.pages) {
+      context.disabled_prev = 'disabled';
+    }
+    var html = template(context);
+    $('.docs-pages-links').html(html);
+
+    $('.docs .loading').hide();
+  });
+
+}
+
+BC.fn.docs.prev = function (page) {
+  window.location = "/search.html#q=" + $('#search').val() + '&p=' + (page - 1);
+}
+BC.fn.docs.next = function (page) {
+  window.location = "/search.html#q=" + $('#search').val() + '&p=' + (page + 1);
 }

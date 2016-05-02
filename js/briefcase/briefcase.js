@@ -1,4 +1,8 @@
-var BC = {}
+var BC = {
+
+  fn: {}
+  
+};
 
 
 function getParameterByName(name, url) {

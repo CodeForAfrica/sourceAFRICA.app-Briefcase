@@ -5,19 +5,34 @@ body {
   color: #303030;
 }
 
-a {
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+h6 {
+  font-size: 20px;
+}
+
+a, .btn-link {
+  color: #D61E1E;
   &:hover, &:focus {
-    color: #D61E1E;
+    color: #F37D7D;
   }
 }
 
+.btn-link.disabled, .btn-link[disabled] {
+  background-color: transparent;
+  color: #bdc3c7;
+}
+
+
 .form-group.focus .input-group-btn .btn, .input-group.focus .input-group-btn .btn {
-  border-color: #D61E1E;
-  color: #D61E1E;
+  border-color: #303030;
+  color: #303030;
 }
 
 .form-group.focus .form-control, .form-control:focus, .form-group.focus .select2-search input[type="text"], .select2-search input[type="text"]:focus {
-  border-color: #D61E1E;
+  border-color: #303030;
 }
 
 
@@ -85,10 +100,6 @@ a {
 
   color: #fff;
 
-  h1, h2, h3, h4 {
-    font-weight: normal;
-  }
-
   .btn {
     // padding: 13px 45px;
     // background-color: #F37356;
@@ -128,6 +139,14 @@ a {
 
 .search {
   padding-top: 71px;
+
+  .search-bar {
+    margin: 30px 0px;
+  }
+
+  .docs {
+    padding-bottom: 30px;
+  }
 }
 
 

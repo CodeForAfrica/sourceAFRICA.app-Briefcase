@@ -74,9 +74,11 @@ body-class: search
 
 <script id="template-doc-mention" type="text/x-handlebars-template">
   <div class="media">
-    <div class="media-left pull-left">
+    <div class="media-left pull-left text-center">
       <a href="{{ doc_url }}" target="_blank">
         <img class="media-object img-thumbnail" src="{{ thumbnail }}" alt="{{ title }}">
+        <br/>
+        <small>p.{{ page_no }}</small>
       </a>
     </div>
     <div class="media-body">

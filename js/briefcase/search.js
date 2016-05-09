@@ -73,8 +73,9 @@ BC.search.go = function () {
           var context  = {
             title:       '',
             description: mention.text,
-            thumbnail:   doc.resources.thumbnail,
-            doc_url:     doc.canonical_url
+            thumbnail:   doc.resources.page.image.replace('{page}', mention.page).replace('{size}', 'thumbnail'),
+            doc_url:     doc.canonical_url + '#document/p' + mention.page,
+            page_no:     mention.page
           };
           var html = template(context);
 

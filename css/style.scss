@@ -177,6 +177,11 @@ a, .btn-link {
  */
 
 footer {
+  a {
+    &:hover, &:focus {
+      color: #D61E1E;
+    }
+  }
   .ancir-footer {
     background: #303030 url("/img/bg/ancir.jpg") no-repeat top left;
     background-size: auto 500px;

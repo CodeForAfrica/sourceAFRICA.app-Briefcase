@@ -22,6 +22,7 @@ BC.search.go = function () {
   $('html,body').scrollTop(0);
   $('.docs .loading').show();
   $('.docs-list').html('');
+  $('.docs-pages-links').html('');
 
   BC.search.page = Number(getParameterByName('p', window.location.hash));
   if (BC.search.text == null) {
@@ -85,8 +86,8 @@ BC.search.go = function () {
 }
 
 BC.fn.docs.prev = function (page) {
-  window.location = "/search.html#q=" + $('#search').val() + '&p=' + (page - 1);
+  window.location = "/search.html#q=" + encodeURIComponent(BC.search.text) + '&p=' + (page - 1);
 }
 BC.fn.docs.next = function (page) {
-  window.location = "/search.html#q=" + $('#search').val() + '&p=' + (page + 1);
+  window.location = "/search.html#q=" + encodeURIComponent(BC.search.text) + '&p=' + (page + 1);
 }

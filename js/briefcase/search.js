@@ -16,18 +16,22 @@ $('document').ready(function(){
 
 
 BC.search.go = function () {
-  BC.search.text = decodeURIComponent(getParameterByName('q', window.location.hash)).trim();
-  $('input#search').val(BC.search.text);
+  
 
   $('html,body').scrollTop(0);
   $('.docs .loading').show();
   $('.docs-list').html('');
   $('.docs-pages-links').html('');
 
-  BC.search.page = Number(getParameterByName('p', window.location.hash));
+  
+
+  BC.search.text = getParameterByName('q', window.location.hash);
   if (BC.search.text == null) {
     BC.search.text = '';
   };
+  $('input#search').val(BC.search.text.trim());
+
+  BC.search.page = Number(getParameterByName('p', window.location.hash));
   if (BC.search.page !== parseInt(BC.search.page,10)) {
     window.location = "/search.html#q=" + encodeURIComponent(BC.search.text) + '&p=1';
     return true;

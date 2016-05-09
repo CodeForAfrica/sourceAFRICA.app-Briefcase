@@ -53,7 +53,7 @@ body-class: search
 
 {% raw %}
 <script id="template-docs-list" type="text/x-handlebars-template">
-  <div class="media">
+  <div class="media" id="doc-{{ doc_id }}">
     <div class="media-left pull-left">
       <a href="{{ doc_url }}" target="_blank">
         <img class="media-object img-thumbnail" src="{{ thumbnail }}" alt="{{ title }}">
@@ -65,6 +65,22 @@ body-class: search
       </a>
       <p style="margin-bottom: 0;"><small>Updated at {{ updated_at }}</small></p>
       <p>{{ description }}</p>
+      <div class="doc-mentions" style="display: none;">
+        <p><strong><small><i class="fui-star"></i> <span class="pages-count"></span> mentioning "{{ search_text }}"</small></strong></p>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="template-doc-mention" type="text/x-handlebars-template">
+  <div class="media">
+    <div class="media-left pull-left">
+      <a href="{{ doc_url }}" target="_blank">
+        <img class="media-object img-thumbnail" src="{{ thumbnail }}" alt="{{ title }}">
+      </a>
+    </div>
+    <div class="media-body">
+      <small>...{{{ description }}}...</small>
     </div>
   </div>
 </script>

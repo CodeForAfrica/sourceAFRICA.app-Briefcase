@@ -16,7 +16,7 @@ $('document').ready(function(){
 
 
 BC.search.go = function () {
-  BC.search.text = decodeURIComponent(getParameterByName('q', window.location.hash));
+  BC.search.text = decodeURIComponent(getParameterByName('q', window.location.hash)).trim();
   $('input#search').val(BC.search.text);
 
   $('html,body').scrollTop(0);
@@ -50,11 +50,38 @@ BC.search.go = function () {
         description: doc.description,
         thumbnail:   doc.resources.thumbnail,
         doc_url:     doc.canonical_url,
-        updated_at:  moment(doc.updated_at).format("dddd, MMMM Do YYYY, h:mm:ss a")
+        doc_id:      doc.id,
+        updated_at:  moment(doc.updated_at).format("dddd, MMMM Do YYYY, h:mm:ss a"),
+        search_text: BC.search.text
       };
       var html = template(context);
 
       $('.docs-list').append(html);
+
+      // Search mentions
+      if (BC.search.text != '' && doc.mentions.length > 0 ) {
+        $('#doc-' + doc.id + ' .doc-mentions').show();
+
+        var pages_count = '1 page';
+        if (doc.mentions.length > 1) { pages_count = doc.mentions.length + ' pages'};
+        $('#doc-' + doc.id + ' .doc-mentions .pages-count').html(pages_count);
+
+        $.each(doc.mentions, function (index, mention) {
+          var source   = $("#template-doc-mention").html();
+          var template = Handlebars.compile(source);
+
+          var context  = {
+            title:       '',
+            description: mention.text,
+            thumbnail:   doc.resources.thumbnail,
+            doc_url:     doc.canonical_url
+          };
+          var html = template(context);
+
+          $('#doc-' + doc.id + ' .doc-mentions').append(html);
+          console.log('#docs-' + doc.id + ' .doc-mentions');
+        });
+      }
 
     });
 

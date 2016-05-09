@@ -5,7 +5,7 @@ BC.fn.search_bar = {};
 $('document').ready(function(){
 
   $('#search-btn').click(function(){
-    window.location = "/search.html#q=" + encodeURIComponent($('#search').val());
+    window.location = "/search.html#q=" + encodeURIComponent($('#search').val().trim());
   });
 
   $('#search').keypress(function(e){

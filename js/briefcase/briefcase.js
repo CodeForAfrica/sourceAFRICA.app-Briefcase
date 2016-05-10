@@ -1,6 +1,6 @@
 var BC = {
 
-  fn: {}
+  fn: {},
 
   dc: {
     url: 'https://dc.sourceafrica.net'

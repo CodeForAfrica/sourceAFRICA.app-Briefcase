@@ -1,5 +1,6 @@
 ---
-layout: page
+layout:     page
+body-class: page
 
 title: About
 ---

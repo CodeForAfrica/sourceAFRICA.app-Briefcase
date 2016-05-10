@@ -38,7 +38,7 @@ BC.search.go = function () {
   };
 
   $.ajax({
-    url: "https://sourceafrica.net/api/search.json",
+    url: BC.dc.url + '/api/search.json',
     data: { q: BC.search.text, page: BC.search.page, sections: true, mentions: 3 }
   }).done(function (response) {
     BC.docs = {};

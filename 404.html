@@ -1,9 +1,14 @@
+---
+---
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Page Not Found</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+        window.location = '{{ site.dc_url }}' + window.location.pathname + window.location.hash;
+    </script>
     <style>
 
         * {

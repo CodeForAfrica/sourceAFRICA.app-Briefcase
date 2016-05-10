@@ -6,6 +6,8 @@ description: 'Africa''s premier repository for actionable documents'
 url: https://briefcase.sourceafrica.net
 enforce_ssl: briefcase.sourceafrica.net
 
+dc_url: https://dc.sourceafrica.net
+
 github-url: https://github.com/CodeForAfrica/sourceAFRICA.app-Briefcase
 api-url: https://sourceafrica.net/help/api
 

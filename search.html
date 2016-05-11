@@ -63,7 +63,7 @@ body-class: search
       <a href="{{ doc_url }}" target="_blank">
         <h6 class="media-heading">{{ title }}</h6>
       </a>
-      <p style="margin-bottom: 0;"><small>{{ pages_no }} <!-- - Contributed by {{ contributor }}, {{ contributor_org }}  -->- {{ updated_at }}</small></p>
+      <p class="doc-attribution"><small>{{ pages_no }} - Contributed by {{ contributor }}, {{{ contributor_org }}} - {{ updated_at }}</small></p>
       <p>{{ description }}</p>
       <div class="doc-mentions" style="display: none;">
         <p><strong><small><i class="fui-star"></i> <span class="pages-count"></span> mentioning "{{ search_text }}"</small></strong></p>

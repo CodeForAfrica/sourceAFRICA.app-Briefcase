@@ -49,13 +49,17 @@ BC.search.go = function () {
       var source   = $("#template-docs-list").html();
       var template = Handlebars.compile(source);
 
+      doc.pages_no = '1 Page';
+      if (doc.pages > 1) { doc.pages_no = doc.pages + ' Pages'};
+
       var context  = {
         title:       doc.title,
         description: doc.description,
         thumbnail:   doc.resources.thumbnail,
         doc_url:     doc.canonical_url,
         doc_id:      doc.id,
-        updated_at:  moment(doc.updated_at).format("dddd, MMMM Do YYYY, h:mm:ss a"),
+        updated_at:  moment(doc.updated_at).format("MMM D, YYYY"),
+        pages_no:    doc.pages_no,
         search_text: BC.search.text
       };
       var html = template(context);

@@ -170,6 +170,14 @@ a, .btn-link {
 
     .docs-list {
 
+      .doc-attribution {
+        margin-bottom: 0;
+        small {
+          font-size: 65%;
+          line-height: 1.5;
+        }
+      }
+
       .doc-mentions {
         .media {
           .media-object.img-thumbnail {

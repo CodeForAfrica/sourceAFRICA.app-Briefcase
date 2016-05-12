@@ -39,7 +39,7 @@ BC.search.go = function () {
 
   $.ajax({
     url: BC.dc.url + '/api/search.json',
-    data: { q: BC.search.text, page: BC.search.page, sections: true, mentions: 3 }
+    data: { q: BC.search.text, page: BC.search.page, sections: true, mentions: 3, contributor: true}
   }).done(function (response) {
     BC.docs = {};
     BC.docs = response.documents;
@@ -53,14 +53,16 @@ BC.search.go = function () {
       if (doc.pages > 1) { doc.pages_no = doc.pages + ' Pages'};
 
       var context  = {
-        title:       doc.title,
-        description: doc.description,
-        thumbnail:   doc.resources.thumbnail,
-        doc_url:     doc.canonical_url,
-        doc_id:      doc.id,
-        updated_at:  moment(doc.updated_at).format("MMM D, YYYY"),
-        pages_no:    doc.pages_no,
-        search_text: BC.search.text
+        title:           doc.title,
+        description:     doc.description,
+        thumbnail:       doc.resources.thumbnail,
+        doc_url:         doc.canonical_url,
+        doc_id:          doc.id,
+        updated_at:      moment(doc.updated_at).format("MMM D, YYYY"),
+        pages_no:        doc.pages_no,
+        contributor:     doc.contributor,
+        contributor_org: doc.contributor_organization,
+        search_text:     BC.search.text
       };
       var html = template(context);
 

@@ -1,15 +1,14 @@
 <footer>
 <div class="container-fluid">
   <div class="row ancir-footer text-center">
-    <div class="col-md-4" style="background-color: transparent;"></div>
-    <div class="col-md-2" style="padding-top: 10px; padding-bottom: 1px;">
+    <div class="col-sm-4 col-md-2 col-md-offset-4" style="padding-top: 10px; padding-bottom: 1px;">
       <p><a href="https://investigativecenters.org/" target="_blank">About Us</a></p>
       <p><a href="https://investigativecenters.org/" target="_blank">Our Work</a></p>
       <p><a href="https://investigativecenters.org/" target="_blank">Join Us</a></p>
       <p><a href="https://investigativecenters.org/" target="_blank">Support Us</a></p>
-      <hr class="visible-sm visible-xs" />
+      <hr class="visible-xs" />
     </div>
-    <div class="col-md-3" style="border-right: 1px solid; border-left: 1px solid; padding-top: 15px; padding-bottom: 15px;">
+    <div class="col-sm-4 col-md-3" style="border-right: 1px solid; border-left: 1px solid; padding-top: 15px; padding-bottom: 15px;">
       <h4>Connect</h4>
       <p>
         <a class="sociallinks" href="https://www.facebook.com/AfricaInvestigated" target="_blank">
@@ -43,33 +42,45 @@
         </span>
         </a>
       </p>
-      <hr class="visible-sm visible-xs" />
+      <hr class="visible-xs" />
     </div>
-    <div class="col-md-3" style="padding-top: 15px; padding-bottom: 15px;">
+    <div class="col-sm-4 col-md-3" style="padding-top: 15px; padding-bottom: 15px;">
       <h4>Newsletter</h4>
       <a class="btn btn-lg btn-wide btn-default" href="{{ site.newsletter }}" target="_blank">JOIN OUR MAILING LIST</a>
     </div>
   </div>
 </div>
+
 <div class="container credit text-center">
-  <p><small>This site provides summaries of documents and their terms to facilitate understanding of important provisions in the documents. These summaries are not interpretations of the documents. Neither the summaries nor the full documents are complete accounts of all legal obligations related to the projects in question. This site also includes document text that was created automatically; such text may contain errors and differences from the original PDF files. No warranty is made to the accuracy of any content on this website.</small></p>
-  <hr/>
-  <p>
-    <a href="/">Home</a> |    
-    <a href="/search.html">Search</a> |
-    <a href="/about.html">About</a> |
-    <a href="{{ site.github-url }}" target="_blank">Github</a> |
-    <a href="{{ site.api-url }}" target="_blank">API</a>
-  </p>
-  <hr/>
-  <p class="logos">
-    <a href="https://codeforafrica.org" target="_blank"><img src="/img/logos/cfafrica.png" alt="Code for Africa" /></a>
-  </p>
-  <p style="margin-bottom: 0;">ANCIR is being incubated by <a href="https://codeforafrica.org" target="_blank">Code for Africa</a></p>
-  <hr style="max-width: 200px; margin: 5px auto; border-color: rgba(186, 193, 200, 0.2);"/>
-  <p>sourceAFRICA is built using <a href="https://github.com/documentcloud/documentcloud" target="_blank">DocumentCloud</a></p>
-  <hr/>
-  <p>This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
-  <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></p>
-</div>
+  <div class="row">
+    <div class="col-sm-8 text-left">
+      <p style="margin-bottom: 20px;"><small>This site provides summaries of documents and their terms to facilitate understanding of important provisions in the documents. These summaries are not interpretations of the documents. Neither the summaries nor the full documents are complete accounts of all legal obligations related to the projects in question. This site also includes document text that was created automatically; such text may contain errors and differences from the original PDF files. No warranty is made to the accuracy of any content on this website.</small></p>
+      
+      <p style="margin-bottom: 20px;">
+        <a href="/">Home</a> |    
+        <a href="/search.html">Search</a> |
+        <a href="/about.html">About</a> |
+        <a href="{{ site.github-url }}" target="_blank">Github</a> |
+        <a href="{{ site.api-url }}" target="_blank">API</a>
+      </p>
+
+      <p><small>This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</small></p>
+      <!-- <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></p> -->
+
+      <br class="visible-xs" />
+    </div>
+    <div class="col-sm-2 col-sm-offset-2">
+      <p class="logos">
+        
+        <a href="https://codeforafrica.org" target="_blank"><img src="/img/logos/cfafrica.png" alt="Code for Africa" /></a><br/>
+        <small>Incubating organisation</small>
+      </p>
+      <hr style="max-width: 200px; margin: 5px auto; border-color: rgba(186, 193, 200, 0.2);"/>
+      <p>sourceAFRICA is built using <a href="https://github.com/documentcloud/documentcloud" target="_blank">DocumentCloud</a></p>
+    </div>
+
+  </div>
+    
+</div> <!-- /.credit -->
+
 </footer>

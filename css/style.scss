@@ -3,6 +3,7 @@
 
 body {
   color: #303030;
+  padding-top: 71px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -77,26 +78,13 @@ a, .btn-link {
  * -----------------------------------------------------------------------------
  */
 
-.home {
-  nav {
-    background-color: rgba(255,255,255,0) !important;
-    border-bottom: 1px rgba(255,255,255,0.5) solid;
-  }
-  .navbar-background {
-    z-index: 1000;
-  }
-}
-
 .jumbotron {
 
   background: #fff url("{{ site.home_bg_url }}") center center;
   background-size: cover;
 
-  position: relative;
-  z-index: 1029;
-
-  padding-top: 300px;
-  padding-bottom: 100px;
+  padding-top: 100px;
+  padding-bottom: 70px;
 
   margin-bottom: 0px;
 
@@ -120,12 +108,23 @@ a, .btn-link {
   }
 }
 
+.banner {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  p {
+    margin: 0;
+  }
+}
+
 .callout-boxes {
   .col-md-6, .col-sm-6 {
-    padding: 100px 50px 50px;
+    padding: 70px 50px 50px;
+    h3 {
+      margin-bottom: 0px;
+    }
   }
   .first {
-    background: #356f90 url("/img/bg/callout-first.png") no-repeat center;
+    background: #D61E1E url("/img/bg/callout-first.png") no-repeat center;
   }
   .second {
     background: #edeff1 url("/img/bg/callout-second.png") no-repeat bottom right;
@@ -238,7 +237,7 @@ footer {
   }
 
   .credit {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 20px;
 
     .logos {

@@ -76,16 +76,6 @@ a, .btn-link {
  * -----------------------------------------------------------------------------
  */
 
-.home {
-  nav {
-    background-color: rgba(255,255,255,0) !important;
-    border-bottom: 1px rgba(255,255,255,0.5) solid;
-  }
-  .navbar-background {
-    z-index: 1000;
-  }
-}
-
 .jumbotron {
 
   background: #fff url("{{ site.home_bg_url }}") center center;

@@ -13,4 +13,10 @@ sourceAFRICA is powered by [DocumentCloud](https://github.com/documentcloud/docu
 
 sourceAFRICA is offered as a service by [ANCIR (the African Network of Centers for Investigative Reporting)](https://investigativecenters.org) with support from [Code for Africa](https://codeforafrica.org).
 
+---
+
+###### Attribution 
+
+- ["I can't believe I was ever expecting trouble!"](https://www.flickr.com/photos/hoosadork/5506541057/) by [Chrissy Hunt](https://www.flickr.com/photos/hoosadork/)
+
 <br/>

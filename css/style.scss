@@ -110,6 +110,9 @@ a, .btn-link {
 .callout-boxes {
   .col-md-6, .col-sm-6 {
     padding: 70px 50px 50px;
+    h3 {
+      margin-bottom: 0px;
+    }
   }
   .first {
     background: #D61E1E url("/img/bg/callout-first.png") no-repeat center;

@@ -107,6 +107,14 @@ a, .btn-link {
   }
 }
 
+.banner {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  p {
+    margin: 0;
+  }
+}
+
 .callout-boxes {
   .col-md-6, .col-sm-6 {
     padding: 70px 50px 50px;
@@ -228,7 +236,7 @@ footer {
   }
 
   .credit {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 20px;
 
     .logos {

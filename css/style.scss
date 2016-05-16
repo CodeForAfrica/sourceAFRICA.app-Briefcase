@@ -3,6 +3,7 @@
 
 body {
   color: #303030;
+  padding-top: 71px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -81,11 +82,8 @@ a, .btn-link {
   background: #fff url("{{ site.home_bg_url }}") center center;
   background-size: cover;
 
-  position: relative;
-  z-index: 1029;
-
-  padding-top: 300px;
-  padding-bottom: 100px;
+  padding-top: 100px;
+  padding-bottom: 70px;
 
   margin-bottom: 0px;
 
@@ -111,7 +109,7 @@ a, .btn-link {
 
 .callout-boxes {
   .col-md-6, .col-sm-6 {
-    padding: 100px 50px 50px;
+    padding: 70px 50px 50px;
   }
   .first {
     background: #356f90 url("/img/bg/callout-first.png") no-repeat center;

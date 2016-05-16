@@ -28,12 +28,12 @@ a, .btn-link {
 
 
 .form-group.focus .input-group-btn .btn, .input-group.focus .input-group-btn .btn, .navbar-default .navbar-form .input-group.focus .form-control, .navbar-default .navbar-form .input-group.focus .input-group-btn .btn, .navbar-default .navbar-form .input-group.focus .select2-search input[type="text"]{
-  border-color: #303030;
+  border-color: #D61E1E;
   color: #303030;
 }
 
 .form-group.focus .form-control, .form-control:focus, .form-group.focus .select2-search input[type="text"], .select2-search input[type="text"]:focus, .navbar-default .navbar-form .form-control:focus, .navbar-default .navbar-form .select2-search input[type="text"]:focus, {
-  border-color: #303030;
+  border-color: #D61E1E;
   color: #303030;
 }
 
@@ -80,28 +80,37 @@ a, .btn-link {
 
 .jumbotron {
 
-  background: #fff url("{{ site.home_bg_url }}") center center;
+  background: #fff url("{{ site.home_bg_url }}") bottom center;
   background-size: cover;
 
-  padding-top: 100px;
+  padding-top: 70px;
   padding-bottom: 70px;
 
   margin-bottom: 0px;
 
   color: #fff;
 
-  .btn {
+  h1 {
+    margin-bottom: 30px;
+    -webkit-text-shadow: 1px 1px 25px #303030;
+    -moz-text-shadow: 1px 1px 25px #303030;
+    -ms-text-shadow: 1px 1px 25px #303030;
+    -o-text-shadow: 1px 1px 25px #303030;
+    text-shadow: 1px 1px 25px #303030;
+  }
+
+  .btn-sourceafrica {
     // padding: 13px 45px;
-    // background-color: #F37356;
-    // // border: 2px solid;
-    // &:hover, &:focus {
-    //   background-color: #F46A4A;//rgba(26,26,26,0.3);
-    // }
+    background-color: #D61E1E;
+    &:hover, &:focus {
+      background-color: #F37D7D;
+    }
   }
 
   .input-group {
-    max-width: 400px;
-    margin-top: 30px;
+    max-width: 600px;
+    // margin-top: 30px;
+    margin: 30px auto;
     .form-control, .btn {
       height: 60px;
     }
@@ -195,9 +204,9 @@ a, .btn-link {
  * -----------------------------------------------------------------------------
  */
 
- .page {
+.page {
   padding-top: 71px;
- }
+}
 
 
 /* -----------------------------------------------------------------------------

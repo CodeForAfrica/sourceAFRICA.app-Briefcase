@@ -3,21 +3,26 @@ layout: default
 body-class: home
 ---
 
-<div class="jumbotron">
-  <div class="container-fluid">
+<div class="jumbotron text-center">
+  <div class="container">
 
     <div class="row">
-      <div class="col-lg-7 col-md-9">
+      <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10">
         <!-- <h4>A directory of</h4> -->
         <h1>{{ site.sub-title }}</h1>
 
         <!-- <a href="search.html" class="btn btn-wide btn-hg btn-default">Search</a> -->
 
-        <div class="input-group input-group-hg">
-          <input type="text" class="form-control" placeholder="Search" id="search">
+        <div class="input-group input-group-hg focus">
+          <input type="text" class="form-control search" placeholder="" id="search" autofocus>
           <span class="input-group-btn">
-            <button type="submit" class="btn" id="search-btn"><span class="fui-search"></span></button>
+            <button type="submit" class="btn search-btn"><span class="fui-search"></span></button>
           </span>
+        </div>
+
+        <div>
+          <button class="btn btn-wide btn-default btn-sourceafrica search-btn">Search {{ site.title }}</button>
+          <a class="btn btn-wide btn-default btn-sourceafrica" href="/search.html">Browse Documents</a>
         </div>
 
       </div><!-- /.col-lg-7.col-md-9 -->

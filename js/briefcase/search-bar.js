@@ -4,13 +4,13 @@ BC.fn.search_bar = {};
 
 $('document').ready(function(){
 
-  $('#search-btn').click(function(){
+  $('.search-btn').click(function(){
     window.location = "/search.html#q=" + encodeURIComponent($('#search').val().trim());
   });
 
-  $('#search').keypress(function(e){
+  $('.search').keypress(function(e){
     if(e.which == 13){ //Enter key pressed
-        $('#search-btn').click(); //Trigger search button click event
+        $('.search-btn').click(); //Trigger search button click event
     }
   });
 

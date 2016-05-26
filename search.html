@@ -39,12 +39,11 @@ body-class: search
       <span class="sr-only">Loading...</span>
     </div>
 
-    <div class="col-md-8 docs-list"></div>
+    <div class="col-md-8 search-list"></div>
 
     <div class="clearfix"></div>
     <div class="col-md-8">
-      <hr/>
-      <div class="docs-pages-links"></div>
+      <div class="search-pages-links"></div>
     </div>
   </div>
 </div>
@@ -52,7 +51,7 @@ body-class: search
 <!-- templates -->
 
 {% raw %}
-<script id="template-docs-list" type="text/x-handlebars-template">
+<script id="template-search-list" type="text/x-handlebars-template">
   <div class="media" id="doc-{{ doc_id }}">
     <div class="media-left pull-left">
       <a href="{{ doc_url }}" target="_blank">
@@ -87,11 +86,28 @@ body-class: search
   </div>
 </script>
 
-<script id="template-docs-pages-links" type="text/x-handlebars-template">
+<script id="template-search-pages-links" type="text/x-handlebars-template">
+  <hr/>
   <p class="text-center">
-    <a href="javascript:BC.fn.docs.prev({{ page }});" class="btn btn-link {{ disabled_prev }}" id="docs-prev"><i class="fa fa-arrow-left"></i></a>
+    <a href="javascript:BC.search.fn.prev({{ page }});" class="btn btn-link {{ disabled_prev }}" id="docs-prev"><i class="fa fa-arrow-left"></i></a>
     Page <strong><span id="docs-page">{{ page }}</span></strong> of {{ pages }}
-    <a href="javascript:BC.fn.docs.next({{ page }});" class="btn btn-link {{ disabled_next }}" id="docs-next"><i class="fa fa-arrow-right"></i></a>
+    <a href="javascript:BC.search.fn.next({{ page }});" class="btn btn-link {{ disabled_next }}" id="docs-next"><i class="fa fa-arrow-right"></i></a>
   </p>
+</script>
+
+<script id="template-search-not-found" type="text/x-handlebars-template">
+  <h3 >Not Found</h3>
+  <hr/>
+  <p>No results containing all your search terms were found.</p>
+
+  <p>Your search - <strong>{{ search_text }}</strong> - did not match any documents.</p>
+
+  <p>Suggestions:</p>
+
+  <ul>
+  <li>Make sure all words are spelled correctly.</li>
+  <li>Try different keywords.</li>
+  <li>Try more general keywords.</li>
+  </ul>
 </script>
 {% endraw %}

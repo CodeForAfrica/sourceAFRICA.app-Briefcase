@@ -1,18 +1,20 @@
 title: Briefcase
-sub-title: 'Africa''s premier repository for actionable documents'
+sub_title: 'Africa''s premier repository for actionable documents'
 
 description: 'Africa''s premier repository for actionable documents'
+
+project_id: ''
 
 url: https://briefcase.sourceafrica.net
 enforce_ssl: briefcase.sourceafrica.net
 
 dc_url: https://dc.sourceafrica.net
 
-github-url: https://github.com/CodeForAfrica/sourceAFRICA.app-Briefcase
-api-url: https://sourceafrica.net/help/api
+github_url: https://github.com/CodeForAfrica/sourceAFRICA.app-Briefcase
+api_url: https://dc.sourceafrica.net/help/api
 
 newsletter: http://eepurl.com/burS8v
-google-analytics:
+google_analytics:
 
 
 home_bg_url: /img/bg/docs.png

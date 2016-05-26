@@ -1,29 +1,46 @@
-BC.search = {};
+
+BC.search = {
+  text: '',
+  q: '',
+
+  filters: {
+    projectid: '',
+    accountid: '',
+    orgarnisationid: ''
+  },
+
+  fn: {
+    go: function () {},
+    add_filters: function () {}
+  }
+};
+
 BC.fn.search = {};
 
 BC.fn.docs = {};
 
+
+// 
 $('document').ready(function(){
 
   if (window.location.pathname == "/search.html" || window.location.pathname == "/search") {
-    BC.search.go();
+    BC.search.fn.go();
     window.onhashchange = function () {
-      BC.search.go();
+      BC.search.fn.go();
     }
   }
 
 });
 
 
-BC.search.go = function () {
-  
+// SEARCH Function
+
+BC.search.fn.go = function () {
 
   $('html,body').scrollTop(0);
   $('.docs .loading').show();
   $('.docs-list').html('');
   $('.docs-pages-links').html('');
-
-  
 
   BC.search.text = getParameterByName('q', window.location.hash);
   if (BC.search.text == null) {
@@ -37,9 +54,13 @@ BC.search.go = function () {
     return true;
   };
 
+  // Add filters to search
+
+  BC.search.fn.add_filters();
+
   $.ajax({
     url: BC.dc.url + '/api/search.json',
-    data: { q: BC.search.text, page: BC.search.page, sections: true, mentions: 3, contributor: true}
+    data: { page: BC.search.page, sections: true, mentions: 3, contributor: true, q: BC.search.q }
   }).done(function (response) {
     BC.docs = {};
     BC.docs = response.documents;
@@ -90,7 +111,6 @@ BC.search.go = function () {
           var html = template(context);
 
           $('#doc-' + doc.id + ' .doc-mentions').append(html);
-          console.log('#docs-' + doc.id + ' .doc-mentions');
         });
       }
 
@@ -123,9 +143,34 @@ BC.search.go = function () {
 
 }
 
+
+
+// ADD FILTERS
+
+BC.search.fn.add_filters = function () {
+  BC.search.q = '';
+
+  $.each(BC.search.filters, function (key, filter) {
+    if (filter.trim() != '') {
+      BC.search.q += key + ':' + filter + ' ';
+    };
+    
+  });
+
+  BC.search.q += BC.search.text;
+  return BC.search.q;
+}
+
+
+// DOC PAGINATION
+// TODO: Follow new convention of BC.docs.fn.prev + next
+// TODO: Probably should be loaded separately? or next / prev of search results instead.
 BC.fn.docs.prev = function (page) {
   window.location = "/search.html#q=" + encodeURIComponent(BC.search.text) + '&p=' + (page - 1);
 }
 BC.fn.docs.next = function (page) {
   window.location = "/search.html#q=" + encodeURIComponent(BC.search.text) + '&p=' + (page + 1);
 }
+
+
+

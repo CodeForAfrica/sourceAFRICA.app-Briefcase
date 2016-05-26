@@ -162,13 +162,12 @@ BC.search.fn.add_filters = function () {
 }
 
 
-// DOC PAGINATION
-// TODO: Follow new convention of BC.docs.fn.prev + next
-// TODO: Probably should be loaded separately? or next / prev of search results instead.
-BC.fn.docs.prev = function (page) {
+// SEARCH RESULT PAGINATION
+
+BC.search.fn.prev = function (page) {
   window.location = "/search.html#q=" + encodeURIComponent(BC.search.text) + '&p=' + (page - 1);
 }
-BC.fn.docs.next = function (page) {
+BC.search.fn.next = function (page) {
   window.location = "/search.html#q=" + encodeURIComponent(BC.search.text) + '&p=' + (page + 1);
 }
 

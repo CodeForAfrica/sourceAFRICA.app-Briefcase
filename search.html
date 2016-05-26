@@ -89,9 +89,9 @@ body-class: search
 
 <script id="template-docs-pages-links" type="text/x-handlebars-template">
   <p class="text-center">
-    <a href="javascript:BC.fn.docs.prev({{ page }});" class="btn btn-link {{ disabled_prev }}" id="docs-prev"><i class="fa fa-arrow-left"></i></a>
+    <a href="javascript:BC.search.fn.prev({{ page }});" class="btn btn-link {{ disabled_prev }}" id="docs-prev"><i class="fa fa-arrow-left"></i></a>
     Page <strong><span id="docs-page">{{ page }}</span></strong> of {{ pages }}
-    <a href="javascript:BC.fn.docs.next({{ page }});" class="btn btn-link {{ disabled_next }}" id="docs-next"><i class="fa fa-arrow-right"></i></a>
+    <a href="javascript:BC.search.fn.next({{ page }});" class="btn btn-link {{ disabled_next }}" id="docs-next"><i class="fa fa-arrow-right"></i></a>
   </p>
 </script>
 {% endraw %}

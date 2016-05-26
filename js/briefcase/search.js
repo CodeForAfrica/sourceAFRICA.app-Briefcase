@@ -3,6 +3,10 @@ BC.search = {
   text: '',
   q: '',
 
+  api: {
+    response: {}
+  },
+
   filters: {
     projectid: '',
     accountid: '',
@@ -11,13 +15,21 @@ BC.search = {
 
   fn: {
     go: function () {},
-    add_filters: function () {}
+    addFilters: function () {},
+    filters: {
+      add: function () {}
+    },
+    docs: {
+      show: function () {},
+      showNotFound: function () {}
+    },
+    pagination: {
+      show: function () {}
+    }
   }
 };
 
-BC.fn.search = {};
-
-BC.fn.docs = {};
+BC.fn.search = BC.search.fn;
 
 
 // 
@@ -39,8 +51,8 @@ BC.search.fn.go = function () {
 
   $('html,body').scrollTop(0);
   $('.docs .loading').show();
-  $('.docs-list').html('');
-  $('.docs-pages-links').html('');
+  $('.search-list').html('');
+  $('.search-pages-links').html('');
 
   BC.search.text = getParameterByName('q', window.location.hash);
   if (BC.search.text == null) {
@@ -56,84 +68,27 @@ BC.search.fn.go = function () {
 
   // Add filters to search
 
-  BC.search.fn.add_filters();
+  BC.search.fn.addFilters();
 
   $.ajax({
     url: BC.dc.url + '/api/search.json',
-    data: { page: BC.search.page, sections: true, mentions: 3, contributor: true, q: BC.search.q }
+    data: { 
+      q: BC.search.q,
+      page: BC.search.page,
+      sections: true, mentions: 3, contributor: true
+    }
   }).done(function (response) {
+    
+    BC.search.api.response = response;
+
     BC.docs = {};
     BC.docs = response.documents;
 
-    $.each(BC.docs, function (index, doc) {
-
-      var source   = $("#template-docs-list").html();
-      var template = Handlebars.compile(source);
-
-      doc.pages_no = '1 Page';
-      if (doc.pages > 1) { doc.pages_no = doc.pages + ' Pages'};
-
-      var context  = {
-        title:           doc.title,
-        description:     doc.description,
-        thumbnail:       doc.resources.thumbnail,
-        doc_url:         doc.canonical_url,
-        doc_id:          doc.id,
-        updated_at:      moment(doc.updated_at).format("MMM D, YYYY"),
-        pages_no:        doc.pages_no,
-        contributor:     doc.contributor,
-        contributor_org: doc.contributor_organization,
-        search_text:     BC.search.text
-      };
-      var html = template(context);
-
-      $('.docs-list').append(html);
-
-      // Search mentions
-      if (BC.search.text != '' && doc.mentions.length > 0 ) {
-        $('#doc-' + doc.id + ' .doc-mentions').show();
-
-        var pages_count = '1 page';
-        if (doc.mentions.length > 1) { pages_count = doc.mentions.length + ' pages'};
-        $('#doc-' + doc.id + ' .doc-mentions .pages-count').html(pages_count);
-
-        $.each(doc.mentions, function (index, mention) {
-          var source   = $("#template-doc-mention").html();
-          var template = Handlebars.compile(source);
-
-          var context  = {
-            title:       '',
-            description: mention.text,
-            thumbnail:   doc.resources.page.image.replace('{page}', mention.page).replace('{size}', 'thumbnail'),
-            doc_url:     doc.canonical_url + '#document/p' + mention.page,
-            page_no:     mention.page
-          };
-          var html = template(context);
-
-          $('#doc-' + doc.id + ' .doc-mentions').append(html);
-        });
-      }
-
-    });
-
-    // Pagination
-    var source   = $("#template-docs-pages-links").html();
-    var template = Handlebars.compile(source);
-
-    var context  = {
-      pages:         Math.ceil(response.total/response.per_page),
-      page:          response.page,
-      disabled_prev: '',
-      disabled_next: ''
+    if(BC.docs.length == 0) {
+      BC.search.fn.docs.showNotFound();
+    } else {
+      BC.search.fn.docs.show();
     };
-    if (context.page < 2) {
-      context.disabled_prev = 'disabled';
-    }
-    if (context.page == context.pages) {
-      context.disabled_next = 'disabled';
-    }
-    var html = template(context);
-    $('.docs-pages-links').html(html);
 
     $('.docs .loading').hide();
 
@@ -147,7 +102,7 @@ BC.search.fn.go = function () {
 
 // ADD FILTERS
 
-BC.search.fn.add_filters = function () {
+BC.search.fn.addFilters = function () {
   BC.search.q = '';
 
   $.each(BC.search.filters, function (key, filter) {
@@ -162,7 +117,98 @@ BC.search.fn.add_filters = function () {
 }
 
 
+// SHOW DOCS LIST
+
+BC.search.fn.docs.show = function () {
+
+  $.each(BC.docs, function (index, doc) {
+
+    var source   = $("#template-search-list").html();
+    var template = Handlebars.compile(source);
+
+    doc.pages_no = '1 Page';
+    if (doc.pages > 1) { doc.pages_no = doc.pages + ' Pages'};
+
+    var context  = {
+      title:           doc.title,
+      description:     doc.description,
+      thumbnail:       doc.resources.thumbnail,
+      doc_url:         doc.canonical_url,
+      doc_id:          doc.id,
+      updated_at:      moment(doc.updated_at).format("MMM D, YYYY"),
+      pages_no:        doc.pages_no,
+      contributor:     doc.contributor,
+      contributor_org: doc.contributor_organization,
+      search_text:     BC.search.text
+    };
+    var html = template(context);
+
+    $('.search-list').append(html);
+
+    // Search mentions
+    if (BC.search.text != '' && doc.mentions.length > 0 ) {
+      $('#doc-' + doc.id + ' .doc-mentions').show();
+
+      var pages_count = '1 page';
+      if (doc.mentions.length > 1) { pages_count = doc.mentions.length + ' pages'};
+      $('#doc-' + doc.id + ' .doc-mentions .pages-count').html(pages_count);
+
+      $.each(doc.mentions, function (index, mention) {
+        var source   = $("#template-doc-mention").html();
+        var template = Handlebars.compile(source);
+
+        var context  = {
+          title:       '',
+          description: mention.text,
+          thumbnail:   doc.resources.page.image.replace('{page}', mention.page).replace('{size}', 'thumbnail'),
+          doc_url:     doc.canonical_url + '#document/p' + mention.page,
+          page_no:     mention.page
+        };
+        var html = template(context);
+
+        $('#doc-' + doc.id + ' .doc-mentions').append(html);
+      });
+    }
+
+  });
+
+  BC.search.fn.pagination.show();
+}
+
+BC.search.fn.docs.showNotFound = function () {
+  var source   = $("#template-search-not-found").html();
+  var template = Handlebars.compile(source);
+
+  var context  = {
+    search_text: BC.search.text
+  };
+
+  var html = template(context);
+  $('.search-list').html(html);
+}
+
+
 // SEARCH RESULT PAGINATION
+
+BC.search.fn.pagination.show = function () {
+  var source   = $("#template-search-pages-links").html();
+  var template = Handlebars.compile(source);
+
+  var context  = {
+    pages:         Math.ceil(BC.search.api.response.total/BC.search.api.response.per_page),
+    page:          BC.search.api.response.page,
+    disabled_prev: '',
+    disabled_next: ''
+  };
+  if (context.page < 2) {
+    context.disabled_prev = 'disabled';
+  }
+  if (context.page == context.pages) {
+    context.disabled_next = 'disabled';
+  }
+  var html = template(context);
+  $('.search-pages-links').html(html);
+}
 
 BC.search.fn.prev = function (page) {
   window.location = "/search.html#q=" + encodeURIComponent(BC.search.text) + '&p=' + (page - 1);

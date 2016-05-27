@@ -71,6 +71,16 @@ a, .btn-link {
   }
 }
 
+.navbar-toggle {
+  height: 71px;
+  line-height: 71px;
+  &:hover, &:focus {
+    .navbar-inverse &:before, &:before {
+      color: #D61E1E;
+    }
+  }
+}
+
 
 
 /* -----------------------------------------------------------------------------
@@ -84,7 +94,7 @@ a, .btn-link {
   background-size: cover;
 
   padding-top: 70px;
-  padding-bottom: 70px;
+  padding-bottom: 60px;
 
   margin-bottom: 0px;
 
@@ -99,20 +109,19 @@ a, .btn-link {
     text-shadow: 1px 1px 25px #303030;
   }
 
-  .btn-sourceafrica {
-    // padding: 13px 45px;
-    background-color: #D61E1E;
-    &:hover, &:focus {
-      background-color: #F37D7D;
+  .input-group {
+    max-width: 600px;
+    margin: 30px auto 20px;
+    .form-control, .btn {
+      height: 60px;
     }
   }
 
-  .input-group {
-    max-width: 600px;
-    // margin-top: 30px;
-    margin: 30px auto;
-    .form-control, .btn {
-      height: 60px;
+  .btn-sourceafrica {
+    background-color: #D61E1E;
+    margin: 5px 5px;
+    &:hover, &:focus {
+      background-color: #F37D7D;
     }
   }
 }

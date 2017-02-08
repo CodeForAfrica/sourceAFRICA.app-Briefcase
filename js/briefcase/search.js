@@ -70,31 +70,32 @@ BC.search.fn.go = function () {
 
   BC.search.fn.addFilters();
 
-  $.ajax({
-    url: BC.dc.url + '/api/search.json',
-    data: { 
+  $.get(
+    BC.dc.url + '/api/search.json' ,
+    { 
       q: BC.search.q,
       page: BC.search.page,
       sections: true, mentions: 3, contributor: true
-    }
-  }).done(function (response) {
-    
-    BC.search.api.response = response;
+    },
+    function (response) {
+        
+        BC.search.api.response = response;
 
-    BC.docs = {};
-    BC.docs = response.documents;
+        BC.docs = {};
+        BC.docs = response.documents;
 
-    if(BC.docs.length == 0) {
-      BC.search.fn.docs.showNotFound();
-    } else {
-      BC.search.fn.docs.show();
-    };
+        if(BC.docs.length == 0) {
+          BC.search.fn.docs.showNotFound();
+        } else {
+          BC.search.fn.docs.show();
+        };
 
-    $('.docs .loading').hide();
+        $('.docs .loading').hide();
 
-    // Set share links
-    BC.fn.search_bar.setShareLinks();
-  });
+        // Set share links
+        BC.fn.search_bar.setShareLinks();
+      }
+    );
 
 }
 
@@ -146,7 +147,7 @@ BC.search.fn.docs.show = function () {
     $('.search-list').append(html);
 
     // Search mentions
-    if (BC.search.text != '' && doc.mentions.length > 0 ) {
+    if (BC.search.text != '' && doc.mentions && doc.mentions.length > 0) {
       $('#doc-' + doc.id + ' .doc-mentions').show();
 
       var pages_count = '1 page';

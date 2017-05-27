@@ -2,54 +2,251 @@
 ---
 
 body {
-  padding-top: 53px;
+  color: #303030;
+  padding-top: 71px;
 }
 
-.jumbotron {
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+h6 {
+  font-size: 20px;
+}
+
+a, .btn-link {
+  color: #D61E1E;
+  &:hover, &:focus {
+    color: #F37D7D;
+  }
+}
+
+.btn-link.disabled, .btn-link[disabled] {
   background-color: transparent;
-  padding-top: 150px;
-  padding-bottom: 100px;
-  h1, h2, h3, h4 {
-    font-weight: normal;
+  color: #bdc3c7;
+}
+
+
+.form-group.focus .input-group-btn .btn, .input-group.focus .input-group-btn .btn, .navbar-default .navbar-form .input-group.focus .form-control, .navbar-default .navbar-form .input-group.focus .input-group-btn .btn, .navbar-default .navbar-form .input-group.focus .select2-search input[type="text"]{
+  border-color: #D61E1E;
+  color: #303030;
+}
+
+.form-group.focus .form-control, .form-control:focus, .form-group.focus .select2-search input[type="text"], .select2-search input[type="text"]:focus, .navbar-default .navbar-form .form-control:focus, .navbar-default .navbar-form .select2-search input[type="text"]:focus, {
+  border-color: #D61E1E;
+  color: #303030;
+}
+
+
+.navbar {
+  min-height: 71px;
+  .navbar-brand {
+    font-size: 30px;
+    padding-top: 20px;
+    small {
+      font-size: 30%;
+      font-weight: normal;
+      margin-top: -7px;
+      position: fixed;
+      color: rgba(255,255,255,0.5);
+      span {
+        font-size: 150%;
+      }
+    }
+
+    &:hover, &:focus {
+      color: #D61E1E;
+    }
+  }
+
+  .navbar-nav > li > a {
+    padding: 24px 21px;
+    &:hover, &:focus {
+      color: #D61E1E;
+    }
+  }
+
+  &.navbar-inverse {
+    background-color: rgba(48,48,48,1.0);
+  }
+}
+
+.navbar-toggle {
+  height: 71px;
+  line-height: 71px;
+  &:hover, &:focus {
+    .navbar-inverse &:before, &:before {
+      color: #D61E1E;
+    }
+  }
+}
+
+
+
+/* -----------------------------------------------------------------------------
+ * Home Page
+ * -----------------------------------------------------------------------------
+ */
+
+.jumbotron {
+
+  background: #fff url("{{ site.home_bg_url }}") bottom center;
+  background-size: cover;
+
+  padding-top: 70px;
+  padding-bottom: 60px;
+
+  margin-bottom: 0px;
+
+  color: #fff;
+
+  h1 {
+    margin-bottom: 30px;
+    -webkit-text-shadow: 1px 1px 25px #303030;
+    -moz-text-shadow: 1px 1px 25px #303030;
+    -ms-text-shadow: 1px 1px 25px #303030;
+    -o-text-shadow: 1px 1px 25px #303030;
+    text-shadow: 1px 1px 25px #303030;
   }
 
   .input-group {
-    max-width: 500px;
-    margin-top: 30px;
+    max-width: 600px;
+    margin: 30px auto 20px;
     .form-control, .btn {
       height: 60px;
     }
+  }
 
-    .btn-primary {
-      color: #fff;
-      background-color: #1abc9c;
+  .btn-sourceafrica {
+    background-color: #D61E1E;
+    margin: 5px 5px;
+    &:hover, &:focus {
+      background-color: #F37D7D;
     }
+  }
+}
+
+.banner {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  p {
+    margin: 0;
   }
 }
 
 .callout-boxes {
-  .col-md-6 {
-    padding: 100px 50px 50px;
+  .col-md-6, .col-sm-6 {
+    padding: 70px 50px 50px;
+    h3 {
+      margin-bottom: 0px;
+    }
   }
   .first {
-
+    background: #D61E1E url("/img/bg/callout-first.png") no-repeat center;
   }
   .second {
-
+    background: #edeff1 url("/img/bg/callout-second.png") no-repeat bottom right;
   }
 }
 
+
+
+/* -----------------------------------------------------------------------------
+ * Search Page
+ * -----------------------------------------------------------------------------
+ */
+
+.search {
+  padding-top: 142px;
+
+  .navbar-search {
+    top: 71px;
+    min-height: 53px;
+    z-index: 1020;
+    .navbar-form {
+      border: 0px;
+      .search-bar {
+        width: 100%;
+      }
+    }
+
+    .share-icons {
+      a {
+        margin: 0 5px;
+        padding: 0 5px;
+        &:last-child {
+          margin-right: 0px;
+        }
+      }
+    }
+    
+  }
+
+  .docs {
+    padding-bottom: 30px;
+    min-height: 600px;
+
+    .loading {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .docs-list {
+
+      .doc-attribution {
+        margin-bottom: 0;
+        small {
+          font-size: 65%;
+          line-height: 1.5;
+        }
+      }
+
+      .doc-mentions {
+        .media {
+          .media-object.img-thumbnail {
+            width: 55px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/* -----------------------------------------------------------------------------
+ * Page
+ * -----------------------------------------------------------------------------
+ */
+
+.page {
+  padding-top: 71px;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Footer
+ * -----------------------------------------------------------------------------
+ */
+
 footer {
+  a {
+    &:hover, &:focus {
+      color: #D61E1E;
+    }
+  }
   .ancir-footer {
-    background: #1a1a1a url("/img/logos/ancir.png") no-repeat center left;
+    background: #303030 url("/img/bg/ancir.jpg") no-repeat top left;
     background-size: auto 500px;
+    background-color: #303030;
+    background-position: -20px;
     padding-top: 100px;
     padding-bottom: 100px;
     .sociallinks {
       text-decoration: none;
     }
     .col-md-2, .col-md-3, .col-md-4 {
-      height: 150px;
+      background-color: rgba(48,48,48,0.7);
       h1, h2, h3, h4 {
         margin-top: 0;
       }
@@ -58,13 +255,13 @@ footer {
     .btn {
       background-color: #9aa4af;
       &:hover, &:focus {
-        background-color: #1abc9c;
+        background-color: #D61E1E;
       }
     }
   }
 
   .credit {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 20px;
 
     .logos {
@@ -74,6 +271,16 @@ footer {
         -webkit-filter: grayscale(100%);
         -o-filter: grayscale(100%);
         filter: grayscale(100%);
+      }
+    }
+  }
+
+  .footer-links {
+    margin-bottom: 20px;
+    a {
+      margin: 0 10px;
+      &:first-child {
+        margin-left: 0;
       }
     }
   }

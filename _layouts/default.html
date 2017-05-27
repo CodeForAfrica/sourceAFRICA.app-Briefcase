@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>{{ site.title }}</title>
-        <meta name="description" content="">
+        <meta name="description" content="{{ site.description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -16,6 +16,22 @@
           if ((host == window.location.host) && (window.location.protocol != "https:"))
               window.location.protocol = "https";
         </script>
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="{{ site.twitter }}">
+        <meta name="twitter:title" content="{{ site.title }}">
+        <meta name="twitter:description" content="{{ site.description }}">
+        <!-- Twitter Summary card images must be at least 120x120px -->
+        <meta name="twitter:image" content="{{ site.url }}{{ site.home_bg_url }}">
+
+        <!-- Open Graph data -->
+        <meta property="og:title" content="{{ site.title }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ site.url }}" />
+        <meta property="og:image" content="{{ site.url }}{{ site.home_bg_url }}" />
+        <meta property="og:description" content="{{ site.description }}" />
+
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -44,8 +60,28 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+        <script type="text/javascript" src="js/briefcase/briefcase.js"></script>
+        <script type="text/javascript" src="js/briefcase/search-bar.js"></script>
+        <script type="text/javascript" src="js/briefcase/search.js"></script>
+
+        <script type="text/javascript">
+            {% if site.dc_url %}
+                BC.dc.url = '{{ site.dc_url }}';
+            {% endif %}
+
+            {% if site.project_id %}
+                BC.search.filters.projectid = '{{ site.project_id }}';
+            {% endif %}
+        </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/js/flat-ui.min.js"></script>
+        <script src="https://designmodo.github.io/Flat-UI/docs/assets/js/application.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -54,7 +90,8 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='https://www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','{{ site.google-analytics }}','auto');ga('send','pageview');
+            ga('create', 'UA-44795600-3', 'auto', {'name': 'sourceAFRICA'});ga('sourceAFRICA.send', 'pageview');
+            ga('create','{{ site.google_analytics }}','auto');ga('send','pageview');
         </script>
     </body>
 </html>

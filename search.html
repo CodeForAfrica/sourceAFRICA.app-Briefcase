@@ -3,22 +3,111 @@ layout: default
 body-class: search
 ---
 
-<div class="container">
-  <div id="DC-search-group-cfafrica" class="DC-search-container"></div>
-  <script src="//s3-eu-west-1.amazonaws.com/s3.sourceafrica.net/embed/loader.js"></script>
-  <script>
-    dc.embed.load('https://sourceafrica.net/search/embed/', {
-      q: "Group: cfafrica",
-      container: "#DC-search-group-cfafrica",
-      title: "Documents",
-      order: "score",
-      per_page: 12,
-      search_bar: true,
-      organization: 1
-    });
-  </script>
-  <noscript>
-    <a href="https://sourceafrica.net/public/search/Group%3A%20cfafrica">View/search document collection</a>
-  </noscript>
+<div class="navbar navbar-default navbar-fixed-top navbar-search">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-9">
+        <div class="navbar-form">
+          <div class="input-group input-group-rounded search-bar">
+            <input type="text" class="form-control search" placeholder="Search" id="search">
+            <span class="input-group-btn">
+              <button type="submit" class="btn search-btn"><span class="fui-search"></span></button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-3 hidden-xs">
+        <p class="navbar-text navbar-right share-icons">
+          <a href="#" target="blank" class="share-tw">
+            <i class="fa fa-lg fa-twitter"></i></a>
+          <a href="#" target="blank" class="share-fb">
+            <i class="fa fa-lg fa-facebook"></i>
+          </a>
+        </p>
+      </div>
+    </div>
 
+  </div>
 </div>
+
+<div class="container">
+  
+
+  <div class="row docs">
+    <div class="col-md-8 text-center loading">
+      <i class="fa fa-cog fa-spin fa-3x fa-fw margin-bottom"></i><br/>
+      <span class="sr-only">Loading...</span>
+    </div>
+
+    <div class="col-md-8 search-list"></div>
+
+    <div class="clearfix"></div>
+    <div class="col-md-8">
+      <div class="search-pages-links"></div>
+    </div>
+  </div>
+</div>
+
+<!-- templates -->
+
+{% raw %}
+<script id="template-search-list" type="text/x-handlebars-template">
+  <div class="media" id="doc-{{ doc_id }}">
+    <div class="media-left pull-left">
+      <a href="{{ doc_url }}" target="_blank">
+        <img class="media-object img-thumbnail" src="{{ thumbnail }}" alt="{{ title }}">
+      </a>
+    </div>
+    <div class="media-body">
+      <a href="{{ doc_url }}" target="_blank">
+        <h6 class="media-heading">{{ title }}</h6>
+      </a>
+      <p class="doc-attribution"><small>{{ pages_no }} - Contributed by {{ contributor }}, {{{ contributor_org }}} - {{ updated_at }}</small></p>
+      <p>{{ description }}</p>
+      <div class="doc-mentions" style="display: none;">
+        <p><strong><small><i class="fui-star"></i> <span class="pages-count"></span> mentioning "{{ search_text }}"</small></strong></p>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="template-doc-mention" type="text/x-handlebars-template">
+  <div class="media">
+    <div class="media-left pull-left text-center">
+      <a href="{{ doc_url }}" target="_blank">
+        <img class="media-object img-thumbnail" src="{{ thumbnail }}" alt="{{ title }}">
+        <br/>
+        <small>p.{{ page_no }}</small>
+      </a>
+    </div>
+    <div class="media-body">
+      <small>...{{{ description }}}...</small>
+    </div>
+  </div>
+</script>
+
+<script id="template-search-pages-links" type="text/x-handlebars-template">
+  <hr/>
+  <p class="text-center">
+    <a href="javascript:BC.search.fn.prev({{ page }});" class="btn btn-link {{ disabled_prev }}" id="docs-prev"><i class="fa fa-arrow-left"></i></a>
+    Page <strong><span id="docs-page">{{ page }}</span></strong> of {{ pages }}
+    <a href="javascript:BC.search.fn.next({{ page }});" class="btn btn-link {{ disabled_next }}" id="docs-next"><i class="fa fa-arrow-right"></i></a>
+  </p>
+</script>
+
+<script id="template-search-not-found" type="text/x-handlebars-template">
+  <h3 >Not Found</h3>
+  <hr/>
+  <p>No results containing all your search terms were found.</p>
+
+  <p>Your search - <strong>{{ search_text }}</strong> - did not match any documents.</p>
+
+  <p>Suggestions:</p>
+
+  <ul>
+  <li>Make sure all words are spelled correctly.</li>
+  <li>Try different keywords.</li>
+  <li>Try more general keywords.</li>
+  </ul>
+</script>
+{% endraw %}

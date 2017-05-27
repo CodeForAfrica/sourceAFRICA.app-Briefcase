@@ -3,34 +3,51 @@ layout: default
 body-class: home
 ---
 
-<div class="container-fluid">
-<div class="jumbotron">
-  <div class="row">
-    <div class="col-lg-7 col-md-9">
-      <h4>A directory of</h4>
-      <h1>{{ site.sub-title }}</h1>
-      <a href="search.html" class="btn btn-wide btn-hg btn-primary">Search</a>
-      <!-- <div class="input-group input-group-hg input-group-rounded">
-        <input type="text" class="form-control" placeholder="Search" id="search">
-        <span class="input-group-btn">
-          <button type="submit" class="btn"><span class="fui-search"></span></button>
-        </span>
-      </div> --><!-- /.input-group -->
-    </div><!-- /.col-lg-7.col-md-9 -->
-  </div><!-- /.row -->
-  
+<div class="jumbotron text-center">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10">
+        <!-- <h4>A directory of</h4> -->
+        <h1>{{ site.sub_title }}</h1>
+
+        <!-- <a href="search.html" class="btn btn-wide btn-hg btn-default">Search</a> -->
+
+        <div class="input-group input-group-hg focus">
+          <input type="text" class="form-control search" placeholder="" id="search" autofocus>
+          <span class="input-group-btn">
+            <button type="submit" class="btn search-btn"><span class="fui-search"></span></button>
+          </span>
+        </div>
+
+        <div>
+          <button class="btn btn-wide btn-default btn-sourceafrica search-btn">Search {{ site.title }}</button>
+          <a class="btn btn-wide btn-default btn-sourceafrica" href="/search.html">Browse Documents</a>
+        </div>
+
+      </div><!-- /.col-lg-7.col-md-9 -->
+    </div><!-- /.row -->
+    
+  </div><!-- /.container-fluid -->
 </div><!-- /.jumbotron -->
 
-<div class="row callout-boxes">
-  <div class="col-md-6 first bg-primary">
-    <p>PUBLIC AND CONFIDENTIAL DOCUMENTS FROM</p>
-    <h3>1 Governement Ministry</h3>
-    <a href="search" class="btn btn-sm btn-default">View all Ministries <i class="fui-arrow-right"></i></a>
-  </div>
-  <div class="col-md-6 second bg-info">
-    <p>CONTRACT DOCUMENTS RELATED TO</p>
-    <h3>30 Resources</h3>
-    <a href="search" class="btn btn-sm btn-default">View all Resources <i class="fui-arrow-right"></i></a>
-  </div>
+<div class="container text-center banner">
+  <p class="lead">sourceAFRICA is an investigative tool developed and maintained by Africa’s largest association of investigative newsrooms, <a href="https://investigativecenters.org/" target="_blank">ANCIR</a>.</p>
 </div>
+
+<div class="container-fluid">
+  <div class="row callout-boxes">
+    <div class="col-sm-6 first bg-primary">
+      <p>PUBLIC DOCUMENTS FROM</p>
+      <h3>47 Organisations</h3>
+      <p><small>No. of Contributors:</small> 137</p>
+      <a href="/search.html" class="btn btn-sm btn-default">View all Organisations <i class="fui-arrow-right"></i></a>
+    </div>
+    <div class="col-sm-6 second">
+      <p>COLLECTION OF</p>
+      <h3>115,126 Documents</h3>
+      <p><small>No. of Pages:</small> 1,243,213</p>
+      <a href="/search.html" class="btn btn-sm btn-default">View all Resources <i class="fui-arrow-right"></i></a>
+    </div>
+  </div>
 </div>

@@ -1,11 +1,24 @@
-title: Briefcase
-sub-title: Document Leaks from KMOFA
+title: sourceAFRICA
+sub_title: 'Africa''s premier repository for actionable documents'
 
-url: https://briefcase.sourceafrica.net
-enforce_ssl: briefcase.sourceafrica.net
+description: 'Africa''s premier repository for actionable documents'
 
-github-url: https://github.com/CodeForAfrica/sourceAFRICA.app-Briefcase
-api-url: https://sourceafrica.net/help/api
+project_id: ''
+
+url: https://sourceafrica.net
+enforce_ssl: sourceafrica.net
+
+dc_url: https://dc.sourceafrica.net
+
+github_url: https://github.com/CodeForAfrica/sourceAFRICA.app-Briefcase
+api_url: https://dc.sourceafrica.net/help/api
 
 newsletter: http://eepurl.com/burS8v
-google-analytics:
+google_analytics:
+
+
+home_bg_url: /img/bg/docs.png
+
+twitter: '@Code4Africa'
+github: CodeForAfrica
+

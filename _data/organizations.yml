@@ -1,0 +1,50 @@
+- name: ANCIR
+  description: ANCIR strengthens African investigative journalism by improving the expertise, sustainability and production capacity in muckraking newsrooms.
+  img: /img/logos/ancir-small.jpg
+  url: https://investigativecenters.org/
+  dc_group: ancir
+- name: Mail & Guardian
+  description: The Mail & Guardian is South Africa's oldest quality news source on the web and Africa's first online newspaper, offering breaking news, and is reputed internationally for its quality content.
+  img: /img/logos/orgs/mg.png
+  url: http://mg.co.za
+  dc_group: mail-guardian
+- name: Oxpeckers
+  description: Oxpeckers is Africa’s first journalistic investigation unit focusing on environmental issues.
+  img: /img/logos/orgs/oxpeckers.png
+  url: http://oxpeckers.org
+  dc_group: oxpeckers
+- name: Daily Trust
+  description: Our Vision is to be a world class media company that earns public trust. Our mission is to disseminate credible information for the good of all stakeholders.
+  img: /img/logos/orgs/daily-trust.png
+  url: http://dailytrust.com.ng/
+  dc_group: daily-trust
+- name: Sahara Reporters
+  description: Sahara Reporters is an outstanding, groundbreaking website that encourages citizen journalists to report ongoing corruption and government malfeasance in Africa.
+  img: /img/logos/orgs/sr.png
+  url: http://oxpeckers.org
+  dc_group: sahara-reporters
+- name: PesaCheck
+  description: Decoding the numbers that shape our world. Citizens need accurate information to make decisions. PesaCheck is a fact-checking initiative to verify often confusing numbers quoted by public figures across East Africa, supported by International Budget Partnership and Code for Africa affiliates in Kenya, Tanzania & Uganda.
+  img: /img/logos/orgs/pesacheck.png
+  url: https://pesacheck.org
+  dc_group: pesacheck
+- name: Ndifuna Ukwazi
+  description: We are a group of activists that use research and strategic litigation to campaign for justice and equality in poor and working class communities. We contribute to building a movement in South Africa by supporting new organisations, mentoring young leaders and teaching activists.
+  img: /img/logos/orgs/nu.jpg
+  url: http://nu.org.za
+  dc_group: ndifuna-ukwazi
+- name: Code for South Africa
+  description: Code for South Africa is a non-profit civic technology lab. We use data and technology to promote informed decision-making that drives social change. Our base of operations is Codebridge in Cape Town where we are helping to create a civic technology movement.
+  img: /img/logos/orgs/code4sa.png
+  url: http://code4sa.org
+  dc_group: code4sa
+- name: Carte Blanche
+  description: Carte Blanche is a South African investigative journalism television series that airs on M-Net during prime time viewing on Sunday nights, currently at 19:00.
+  img: /img/logos/orgs/carteblanche.jpg
+  url: https://carteblanche.dstv.com
+  dc_group: carteblanche
+- name: Parliamentary Monitoring Group
+  description: PMG provides accurate, objective, and current info on all parliamentary committee proceedings & general parliamentary activity.
+  img: /img/logos/orgs/pmg-za.png
+  url: https://pmg.org.za
+  dc_group: pmg-za

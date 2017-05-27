@@ -1,0 +1,29 @@
+---
+layout:     page
+body-class: page organizations
+
+title: Organizations
+---
+
+<section class="content">
+  {% for org in site.data.organizations %}
+    <div class="row org">
+      <div class="col-sm-2">
+        <a href="{{ org.url }}">
+          <img class="media-object logo" src="{{ org.img }} " alt="{{ org.name }}">
+        </a>
+      </div>
+      <div class="col-sm-10 description">
+        <h4>{{ org.name }}</h4>
+        <p>{{ org.description }}</p>
+        <p class="links">
+          <a href="https://dc.sourceafrica.net/search/Group:%20{{ org.dc_group }}" target="_blank" rel="noopener"><i class="fa fa-caret-right"></i> Documents on sourceAFRICA</a>
+          <br/>
+          <a href="{{ org.url }}" target="_blank" rel="noopener"><i class="fa fa-caret-right"></i> Organization website</i></a>
+        </p>
+        <hr/>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+

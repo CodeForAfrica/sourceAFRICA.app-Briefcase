@@ -21,6 +21,8 @@ a, .btn-link {
   }
 }
 
+img { max-width: 100%; }
+
 .btn-link.disabled, .btn-link[disabled] {
   background-color: transparent;
   color: #bdc3c7;
@@ -77,6 +79,64 @@ a, .btn-link {
   &:hover, &:focus {
     .navbar-inverse &:before, &:before {
       color: #D61E1E;
+    }
+  }
+}
+
+
+footer {
+  a {
+    &:hover, &:focus {
+      color: #D61E1E;
+    }
+  }
+  .ancir-footer {
+    background: #303030 url("/img/bg/ancir.jpg") no-repeat top left;
+    background-size: auto 500px;
+    background-color: #303030;
+    background-position: -20px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    .sociallinks {
+      text-decoration: none;
+    }
+    .col-md-2, .col-md-3, .col-md-4 {
+      background-color: rgba(48,48,48,0.7);
+      h1, h2, h3, h4 {
+        margin-top: 0;
+      }
+    }
+
+    .btn {
+      background-color: #9aa4af;
+      &:hover, &:focus {
+        background-color: #D61E1E;
+      }
+    }
+  }
+
+  .credit {
+    padding-top: 30px;
+    padding-bottom: 20px;
+
+    .logos {
+      img {
+        height: 50px;
+        margin: 10px;
+        -webkit-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+    }
+  }
+
+  .footer-links {
+    margin-bottom: 20px;
+    a {
+      margin: 0 10px;
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
 }
@@ -223,65 +283,23 @@ a, .btn-link {
   padding-top: 71px;
 }
 
-
 /* -----------------------------------------------------------------------------
- * Footer
+ * Page: Organizations
  * -----------------------------------------------------------------------------
  */
 
-footer {
-  a {
-    &:hover, &:focus {
-      color: #D61E1E;
-    }
+.page.organizations{
+  section.content {
+    padding-bottom: 50px;
   }
-  .ancir-footer {
-    background: #303030 url("/img/bg/ancir.jpg") no-repeat top left;
-    background-size: auto 500px;
-    background-color: #303030;
-    background-position: -20px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    .sociallinks {
-      text-decoration: none;
-    }
-    .col-md-2, .col-md-3, .col-md-4 {
-      background-color: rgba(48,48,48,0.7);
-      h1, h2, h3, h4 {
-        margin-top: 0;
-      }
-    }
 
-    .btn {
-      background-color: #9aa4af;
-      &:hover, &:focus {
-        background-color: #D61E1E;
-      }
+  .org {
+    img.media-object.logo {
+      max-width: 100px;
+    }
+    .links span {
+      margin: 0 5px;
     }
   }
 
-  .credit {
-    padding-top: 30px;
-    padding-bottom: 20px;
-
-    .logos {
-      img {
-        height: 50px;
-        margin: 10px;
-        -webkit-filter: grayscale(100%);
-        -o-filter: grayscale(100%);
-        filter: grayscale(100%);
-      }
-    }
-  }
-
-  .footer-links {
-    margin-bottom: 20px;
-    a {
-      margin: 0 10px;
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-  }
 }
